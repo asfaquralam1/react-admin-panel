@@ -1,0 +1,289 @@
+#root {
+  width: 100%;
+  /* max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem; */
+  text-align: center;
+}
+
+.theme-toggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* login page */
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  padding: 40px;
+  width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.input-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+.input-group input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #667eea;
+  outline: none;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #667eea;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background: #5a67d8;
+}
+
+
+/* Full Layout */
+.admin-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: white;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #212631;
+  color: white;
+  border-right: 1px solid #334155;
+}
+
+.sidebar-title {
+  font-size: 1.5em;
+  padding: 12px;
+  margin: 0px;
+  border-bottom: 1px solid #334155;
+}
+
+.sidenav {
+  display: block;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+}
+
+.sidenav {
+  display: block;
+  padding: 0px;
+  color: white;
+  text-decoration: none;
+  text-align: left;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.sidenav:hover {
+  background: #334155;
+  color: white;
+}
+
+/* Main Section */
+.admin-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #334155;
+  padding: 10px;
+}
+
+body.dark .header {
+  background-color: #212631 !important;   /* Dark background */
+  color: white !important;
+}
+
+/* Content */
+.admin-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+body.dark .admin-content {
+  background-color: #212631;   /* Dark background */
+  color: white !important;
+}
+
+/* table styles */
+.table-wrapper {
+  padding: 20px;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.info-table th,
+.info-table td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.info-table thead {
+  background: #0f172a;
+  color: white;
+}
+
+.info-table tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+.info-table tbody tr:hover {
+  background: #f1f5f9;
+}
+
+/* Buttons */
+.btn {
+  padding: 6px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.show {
+  background: #3b82f6;
+  color: white;
+}
+
+.edit {
+  background: #f59e0b;
+  color: white;
+}
+
+.delete {
+  background: #ef4444;
+  color: white;
+}
+
+/* form styles */
+.form-wrapper {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.form-wrapper h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.edit-form .form-group {
+  margin-bottom: 15px;
+}
+
+.edit-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.edit-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.edit-form input:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn.save {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.btn.cancel {
+  background: #e5e7eb;
+}
+
+
+
+/* Footer */
+.footer {
+  height: 50px;
+  background: #0f172a;
+  border-top: 1px solid #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
