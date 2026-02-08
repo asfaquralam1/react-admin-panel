@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchNews } from "../../../api/newsApi";
+import { fetchUsers } from "../../../services/userApi";
 
-function Products() {
-  const [news, setNews] = useState([]);
+function Users() {
+  const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchNews()
-      .then(res => setNews(res.products)) // adjust if response structure different
+    fetchUsers()
+      .then(res => setUsers(res.data)) // adjust if response structure different
       .catch(err => console.log("Error:", err));
   }, []);
 
@@ -22,32 +22,32 @@ function Products() {
 
   const handleEdit = (id) => {
     console.log("Edit ID:", id);
-    navigate(`/products/edit/${id}`);
+    navigate(`edit/${id}`);
   }
 
   return (
     <div className="table-wrapper">
-      <h2>Products List</h2>
+      <h2>Users List</h2>
 
       <table className="info-table">
         <thead>
           <tr>
             <th>ID</th>
-            <th>Title</th>
-            <th>Price</th>
+            <th>Name</th>
+            <th>Email</th>
             <th>Action</th>
           </tr>
         </thead>
 
         <tbody>
-          {news.map((item) => (
+          {users.map((item) => (
             <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.title}</td>
-              <td>{item.price}</td>
+              <td>{item.uid}</td>
+              <td>{item.first_name}</td>
+              <td>{item.email}</td>
               <td>
                 <button className="btn show">Show</button>
-                <button className="btn edit" onClick={() => handleEdit(item.id)}>Edit</button>
+                <button className="btn edit" onClick={() => handleEdit(item.uid)}>Edit</button>
                 <button
                   className="btn delete"
                   onClick={() => handleDelete(item.id)}
@@ -63,4 +63,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default Users;

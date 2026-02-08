@@ -1,9 +1,17 @@
+
+body{
+  background-color: white;
+  color: black;
+}
+body.dark {
+  background-color: #212631 !important;
+  color: white !important;
+}
+
 #root {
   width: 100%;
-  /* max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem; */
   text-align: center;
+  background-color: white;
 }
 
 .theme-toggle {
@@ -118,6 +126,7 @@
   margin: 15px;
   padding: 10px;
   border-radius: 6px;
+  font-size: 18px;
 }
 
 .sidenav:hover {
@@ -125,7 +134,32 @@
   color: white;
 }
 
-/* Main Section */
+.dropdown-parent {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.submenu {
+  padding-left: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.submenu-link {
+  padding: 10px 0px 15px 0px;
+  /* font-size: 14px; */
+  text-decoration: none;
+  color: white;
+  transition: 0.2s;
+}
+
+.submenu-link:hover {
+  color: #4f46e5;
+}
+
+/* Main Content */
 .admin-body {
   flex: 1;
   display: flex;
@@ -138,13 +172,77 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #334155;
-  padding: 10px;
+  padding: 6px;
 }
 
 body.dark .header {
-  background-color: #212631 !important;   /* Dark background */
+  background-color: #212631 !important;
   color: white !important;
 }
+
+.header-left{
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Avatar Style */
+.user-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Dropdown */
+.avatar-wrapper {
+  position: relative;
+  border-left: 2px solid #212631;
+  padding-left: 15px;
+}
+
+body.dark .avatar-wrapper {
+  border-left: 2px solid #e5e7eb;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  width: 160px;
+  background: #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 10px;
+  z-index: 100;
+  text-align: center;
+}
+
+.dropdown-user {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.dropdown-menu button {
+  width: 100%;
+  padding: 6px;
+  border: none;
+  background: #212631;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  opacity: 0.9;
+}
+
 
 /* Content */
 .admin-content {
@@ -154,7 +252,7 @@ body.dark .header {
 }
 
 body.dark .admin-content {
-  background-color: #212631;   /* Dark background */
+  background-color: #212631;
   color: white !important;
 }
 
@@ -167,8 +265,14 @@ body.dark .admin-content {
   width: 100%;
   border-collapse: collapse;
   background: white;
+  color: black;
   border-radius: 8px;
   overflow: hidden;
+}
+
+body.dark .info-table {
+  background-color: #212631;
+  color: white !important;
 }
 
 .info-table th,
@@ -186,9 +290,9 @@ body.dark .admin-content {
   border-bottom: 1px solid #eee;
 }
 
-.info-table tbody tr:hover {
+/* .info-table tbody tr:hover {
   background: #f1f5f9;
-}
+} */
 
 /* Buttons */
 .btn {
@@ -217,12 +321,19 @@ body.dark .admin-content {
 
 /* form styles */
 .form-wrapper {
-  max-width: 500px;
-  margin: 40px auto;
+  max-width: 800px;
+  margin: 0 auto;
   background: #fff;
   padding: 25px;
   border-radius: 8px;
+  background-color: #212631;
+  color: white;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+body.dark .form-wrapper{
+  background-color: white;
+  color: black;
 }
 
 .form-wrapper h2 {
@@ -230,34 +341,11 @@ body.dark .admin-content {
   margin-bottom: 20px;
 }
 
-.edit-form .form-group {
-  margin-bottom: 15px;
-}
-
-.edit-form label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-.edit-form input {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-.edit-form input:focus {
-  outline: none;
-  border-color: #4f46e5;
-}
-
-.form-actions {
+/* .form-actions {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-}
+} */
 
 .btn {
   padding: 10px 18px;

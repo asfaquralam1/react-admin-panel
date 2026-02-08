@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { loginUser } from "../../../api/authApi";
+import React, { useState } from "react";
+import { loginUser } from "../../../services/authApi";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -17,7 +17,7 @@ function Login() {
       });
 
       console.log("Login success:", data);
-      navigate("/news");
+      navigate("/admin/dashboard"); // redirect to admin dashboard
     } catch (error) {
       console.log("Login failed");
     }

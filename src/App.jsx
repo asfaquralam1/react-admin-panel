@@ -1,29 +1,39 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import '@coreui/coreui/dist/css/coreui.min.css'
 import "./App.css";
-import Login from "./components/pages/auth/Login";
+import React from "react";
 import MainLayout from "./components/layout/MainLayout";
-import NotfoundPage from "./components/pages/NotFoundPage";
+import NotFoundPage from "./components/pages/NotfoundPage";
+import Login from "./components/pages/auth/Login";
 import Dashboard from "./components/pages/Dashboard";
-import EditProducts from "./components/pages/products/EditProducts";
-import Products from "./components/pages/products/Products";
+import Users from "./components/pages/User/Users";
+import EditCourse from "./components/pages/User/EditUser";
+import EditUser from "./components/pages/User/EditUser";
 
 const App = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Login />} />
+                <Route path="/admin/login" element={<Login />} />
 
-        <Route element={<MainLayout />}>
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/edit/:id" element={<EditProducts />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Route>
+                <Route element={<MainLayout />}>
+                    <Route path="/admin/users" element={<Users />} />
+                    <Route
+                        path="/admin/users/edit/:id"
+                        element={<EditUser />}
+                    />
+                    <Route
+                        path="/admin/courses/edit/:id"
+                        element={<EditCourse />}
+                    />
+                    <Route path="/admin/dashboard" element={<Dashboard />} />
+                </Route>
 
-        <Route path="*" element={<NotfoundPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
+                <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+        </BrowserRouter>
+    );
 };
 
 export default App;
