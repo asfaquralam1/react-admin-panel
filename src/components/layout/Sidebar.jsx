@@ -1,5 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { Diameter, List, Settings, User, ChevronDown, Circle } from "lucide-react";
+import {
+  Diameter,
+  List,
+  Settings,
+  User,
+  ChevronDown,
+  Circle,
+} from "lucide-react";
 import React, { useState } from "react";
 
 const Sidebar = () => {
@@ -20,14 +27,17 @@ const Sidebar = () => {
       </NavLink>
 
       {/* Products Dropdown */}
-      <div className="sidenav dropdown-parent" onClick={() => setProductOpen(!productOpen)}>
+      <div
+        className="sidenav dropdown-parent"
+        onClick={() => setProductOpen(!productOpen)}
+      >
         <List size={18} style={{ marginRight: "10px" }} />
         <span style={{ flex: 1 }}>Courses</span>
         <ChevronDown
           size={14}
           style={{
             transition: "0.3s",
-            transform: productOpen ? "rotate(180deg)" : "rotate(0deg)"
+            transform: productOpen ? "rotate(180deg)" : "rotate(0deg)",
           }}
         />
       </div>

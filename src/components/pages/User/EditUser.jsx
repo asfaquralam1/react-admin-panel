@@ -8,6 +8,7 @@ import {
   CCol,
   CRow,
   CContainer,
+  CForm,
 } from "@coreui/react";
 import { fetchSingleUser } from "../../../services/userApi";
 
@@ -60,10 +61,10 @@ function EditUser() {
   }
 
   return (
-    <div className="form-wrapper">
+    <CContainer className="form-wrapper">
       <h2>Edit User</h2>
 
-      <form onSubmit={handleSubmit}>
+      <CForm onSubmit={handleSubmit}>
         <CRow>
           <CCol lg={6} md={6}>
             <CFormLabel htmlFor="first_name">First Name</CFormLabel>
@@ -74,6 +75,7 @@ function EditUser() {
                 name="first_name"
                 value={user.first_name}
                 onChange={handleChange}
+                style={{ width: "100%" }}
               />
             </CInputGroup>
           </CCol>
@@ -88,16 +90,17 @@ function EditUser() {
                 value={user.email}
                 onChange={handleChange}
                 placeholder="Enter Email"
+                style={{ width: "100%" }}
               />
             </CInputGroup>
           </CCol>
         </CRow>
 
         <CButton type="submit" color="primary">
-          Update User
+          Update
         </CButton>
-      </form>
-    </div>
+      </CForm>
+    </CContainer>
   );
 }
 

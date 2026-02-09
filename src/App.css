@@ -98,7 +98,7 @@ body.dark {
 /* Sidebar */
 .sidebar {
   width: 250px;
-  background: #212631;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   border-right: 1px solid #334155;
 }
@@ -282,7 +282,7 @@ body.dark .info-table {
 }
 
 .info-table thead {
-  background: #0f172a;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
 }
 
@@ -323,12 +323,12 @@ body.dark .info-table {
 .form-wrapper {
   max-width: 800px;
   margin: 0 auto;
-  background: #fff;
   padding: 25px;
   border-radius: 8px;
-  background-color: #212631;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: left;
 }
 
 body.dark .form-wrapper{
@@ -374,4 +374,8 @@ body.dark .form-wrapper{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+footer p{
+  margin-bottom: 0px !important;
 }

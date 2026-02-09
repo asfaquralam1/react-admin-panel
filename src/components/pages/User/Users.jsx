@@ -27,7 +27,7 @@ function Users() {
 
   return (
     <div className="table-wrapper">
-      <h2>Users List</h2>
+      <h2>Users</h2>
 
       <table className="info-table">
         <thead>
