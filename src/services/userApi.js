@@ -1,7 +1,7 @@
 import api from "./axios";
 
 
-// Get all news
+// Get all Users
 export const fetchUsers = async () => {
   try {
     const response = await api.get("/api/users"); // adjust if endpoint different
@@ -13,10 +13,21 @@ export const fetchUsers = async () => {
 };
 
 
-// Get single news
+// Get single user
 export const fetchSingleUser = async (id) => {
   try {
-    const response = await api.get(`/api/user/${id}`);
+    const response = await api.get(`/api/users/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Single news fetch error:", error.response?.data || error.message);
+    throw error;
+  }
+};
+
+//Edit User
+export const editSingleUser = async (id) => {
+  try {
+    const response = await api.get(`/api/users/${id}/edit`);
     return response.data;
   } catch (error) {
     console.error("Single news fetch error:", error.response?.data || error.message);

@@ -63,6 +63,8 @@ body.dark {
   border-radius: 6px;
   font-size: 14px;
   transition: 0.3s;
+  background-color: white;
+  color: black;
 }
 
 .input-group input:focus {

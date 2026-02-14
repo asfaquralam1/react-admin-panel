@@ -25,6 +25,11 @@ function Users() {
     navigate(`edit/${id}`);
   }
 
+  const showUser = (id) => {
+    navigate(`show/${id}`);
+  }
+
+
   return (
     <div className="table-wrapper">
       <h2>Users</h2>
@@ -46,7 +51,7 @@ function Users() {
               <td>{item.first_name}</td>
               <td>{item.email}</td>
               <td>
-                <button className="btn show">Show</button>
+                <button className="btn show" onClick={() => showUser(item.uid)}>Show</button>
                 <button className="btn edit" onClick={() => handleEdit(item.uid)}>Edit</button>
                 <button
                   className="btn delete"

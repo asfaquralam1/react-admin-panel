@@ -10,7 +10,7 @@ import {
   CContainer,
   CForm,
 } from "@coreui/react";
-import { fetchSingleUser } from "../../../services/userApi";
+import { editSingleUser } from "../../../services/userApi";
 
 function EditUser() {
   const { id } = useParams();
@@ -25,9 +25,9 @@ function EditUser() {
   useEffect(() => {
     const loadUser = async () => {
       try {
-        const res = await fetchSingleUser(id);
-        const userData = res?.data?.[0];
-        console.log("user", userData);
+        const res = await editSingleUser(id);
+        const userData = res?.data;
+        // console.log("user", userData);
         setUser({
           first_name: userData.first_name,
           email: userData.email,

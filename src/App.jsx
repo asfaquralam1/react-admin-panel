@@ -7,8 +7,8 @@ import NotFoundPage from "./components/pages/NotfoundPage";
 import Login from "./components/pages/auth/Login";
 import Dashboard from "./components/pages/Dashboard";
 import Users from "./components/pages/User/Users";
-import EditCourse from "./components/pages/User/EditUser";
 import EditUser from "./components/pages/User/EditUser";
+import UserDatils from "./components/pages/User/UserDatils";
 
 const App = () => {
     return (
@@ -23,9 +23,9 @@ const App = () => {
                         path="/admin/users/edit/:id"
                         element={<EditUser />}
                     />
-                    <Route
-                        path="/admin/courses/edit/:id"
-                        element={<EditCourse />}
+                     <Route
+                        path="/admin/users/show/:id"
+                        element={<UserDatils />}
                     />
                     <Route path="/admin/dashboard" element={<Dashboard />} />
                 </Route>
