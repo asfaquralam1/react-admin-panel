@@ -277,48 +277,46 @@ body.dark .info-table {
   color: white !important;
 }
 
-.info-table th,
-.info-table td {
-  padding: 12px 15px;
-  text-align: center;
-}
-
-.info-table thead {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+.info-table .MuiDataGrid-columnHeader  {
+  background-color: #6E66C8 !important;
   color: white;
 }
 
-.info-table tbody tr {
-  border-bottom: 1px solid #eee;
-}
-
-/* .info-table tbody tr:hover {
-  background: #f1f5f9;
-} */
-
-/* Buttons */
-.btn {
-  padding: 6px 10px;
-  margin-right: 5px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 13px;
-}
-
-.show {
-  background: #3b82f6;
+/* Footer / Pagination Container */
+.info-table .MuiDataGrid-footerContainer {
+  background-color: #6E66C8;
   color: white;
 }
 
-.edit {
-  background: #f59e0b;
+/* Rows per page text */
+.info-table .MuiTablePagination-root {
   color: white;
 }
 
-.delete {
-  background: #ef4444;
+/* Pagination Icons */
+.info-table .MuiSvgIcon-root {
   color: white;
+}
+
+/* Remove header hover background */
+.info-table .MuiDataGrid-columnHeader:hover {
+  background-color: #6E66C8 !important;
+}
+
+/* Remove white circle behind sort/menu icon */
+.info-table .MuiDataGrid-iconButtonContainer .MuiIconButton-root {
+  background-color: transparent !important;
+}
+
+/* Remove ripple effect */
+.info-table .MuiIconButton-root {
+  border-radius: 0 !important;
+}
+
+/* Remove focus outline */
+.info-table .MuiDataGrid-columnHeader:focus,
+.info-table .MuiDataGrid-columnHeader:focus-within {
+  outline: none !important;
 }
 
 /* form styles */
