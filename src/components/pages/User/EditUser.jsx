@@ -7,10 +7,10 @@ import {
   CButton,
   CCol,
   CRow,
-  CContainer, 
+  CContainer,
   CForm,
 } from "@coreui/react";
-import { editSingleUser } from "../../../services/userApi";
+import { editSingleUser, updateSingleUser } from "../../../services/userApi";
 
 function EditUser() {
   const { id } = useParams();
@@ -18,6 +18,7 @@ function EditUser() {
   const [user, setUser] = useState({
     first_name: "",
     email: "",
+    password: "",
   });
 
   const [loading, setLoading] = useState(true);
@@ -31,6 +32,7 @@ function EditUser() {
         setUser({
           first_name: userData.first_name,
           email: userData.email,
+          password: userData.password_hash
         });
       } catch (error) {
         console.error("Failed to fetch user", error);
@@ -50,11 +52,23 @@ function EditUser() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Updated Data:", user);
-    // update API call here
+
+    try {
+      const data = await updateSingleUser({
+        email: user.email, // assuming you store it in state
+        password: user.password, // assuming you store it in state
+      });
+      console.log("User updated successfully:", data);
+      // Optionally update local state or show success message
+    } catch (error) {
+      console.error("Failed to update user:", error);
+      // Optionally show an error message to the user
+    }
   };
+
 
   if (loading) {
     return <p>Loading user...</p>;
@@ -95,6 +109,21 @@ function EditUser() {
             </CInputGroup>
           </CCol>
         </CRow>
+
+        <CCol lg={6} md={6}>
+            <CFormLabel htmlFor="password">Password</CFormLabel>
+            <CInputGroup>
+              <CFormInput
+                id="password"
+                type="password"
+                name="password"
+                value={user.password}
+                onChange={handleChange}
+                placeholder="Enter password"
+                style={{ width: "100%" }}
+              />
+            </CInputGroup>
+          </CCol>
 
         <CButton type="submit" color="primary">
           Update

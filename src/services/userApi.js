@@ -34,3 +34,14 @@ export const editSingleUser = async (id) => {
     throw error;
   }
 };
+
+//Edit User
+export const updateSingleUser = async (id) => {
+  try {
+    const response = await api.get(`/api/users/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Single news fetch error:", error.response?.data || error.message);
+    throw error;
+  }
+};

@@ -2,7 +2,8 @@ import api from "./axios";
 
 export const loginUser = async (credentials) => {
   try {
-    const response = await api.post("auth/login", credentials);
+    console.log("credentials",credentials);
+    const response = await api.post("api/auth/login", credentials);
 
     // Save token to localStorage
     localStorage.setItem("token", response.data.accessToken);

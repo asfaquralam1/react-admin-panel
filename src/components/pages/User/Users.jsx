@@ -43,9 +43,9 @@ function Users() {
 
   const columns = [
     { field: "uid", headerName: "ID", width: 150 },
-    { field: "first_name", headerName: "First name", width: 150 },
-    { field: "last_name", headerName: "Last name", width: 150 },
-    { field: "phone", headerName: "Phone", width: 200 },
+    { field: "first_name", headerName: "First name", width: 120 },
+    { field: "last_name", headerName: "Last name", width: 120 },
+    { field: "phone", headerName: "Phone", width: 120 },
     { field: "email", headerName: "Email", width: 250 },
     {
       field: "actions",

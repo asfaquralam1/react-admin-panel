@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async (e) => {
@@ -12,7 +12,7 @@ function Login() {
 
     try {
       const data = await loginUser({
-        username: username,
+        email: email,
         password: password,
       });
 
@@ -32,9 +32,9 @@ function Login() {
           <label>Email</label>
           <input
             type="text"
-            name="username"
+            name="email"
             placeholder="Email"
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
