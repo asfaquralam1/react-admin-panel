@@ -19,7 +19,7 @@ const Avatar = ({ user }) => {
   );
 };
 
-const Header = () => {
+const Header = ({toggleSidebar}) => {
   const navigate = useNavigate();
   const userinfo = JSON.parse(localStorage.getItem("user"));
   const user = userinfo.data;
@@ -29,8 +29,6 @@ const Header = () => {
 
   const [openDropdown, setOpenDropdown] = useState(false);
   const dropdownRef = useRef();
-
-  console.log("A", openDropdown);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -60,7 +58,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-left">
-        <Menu size={24} style={{ marginLeft: "10px" }} />
+        <Menu onClick={toggleSidebar} size={24} style={{ marginLeft: "10px", cursor: "pointer" }} />
       </div>
 
       <div className="header-right">

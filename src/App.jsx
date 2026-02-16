@@ -9,6 +9,7 @@ import Dashboard from "./components/pages/Dashboard";
 import Users from "./components/pages/User/Users";
 import EditUser from "./components/pages/User/EditUser";
 import UserDatils from "./components/pages/User/UserDatils";
+import AdminAuthProtect from "./components/pages/auth/AdminAuthProtect";
 
 const App = () => {
     return (
@@ -17,18 +18,19 @@ const App = () => {
                 <Route path="/" element={<Login />} />
                 <Route path="/admin/login" element={<Login />} />
 
-                <Route element={<MainLayout />}>
-                    <Route path="/admin/users" element={<Users />} />
-                    <Route
-                        path="/admin/users/edit/:id"
-                        element={<EditUser />}
-                    />
-                     <Route
-                        path="/admin/users/show/:id"
-                        element={<UserDatils />}
-                    />
-                    <Route path="/admin/dashboard" element={<Dashboard />} />
-                </Route>
+                <Route element={<AdminAuthProtect />}>
+                    <Route element={<MainLayout />}>
+                        <Route path="/admin/users" element={<Users />} />
+                        <Route
+                            path="/admin/users/edit/:id"
+                            element={<EditUser />}
+                        />
+                        <Route
+                            path="/admin/users/show/:id"
+                            element={<UserDatils />}
+                        />
+                        <Route path="/admin/dashboard" element={<Dashboard />} />
+                    </Route></Route>
 
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
