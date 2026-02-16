@@ -4,25 +4,33 @@ import React, { useEffect, useState, useRef } from "react";
 import { Sun, Moon, Menu, Bell, Mail } from "lucide-react";
 
 const Avatar = ({ user }) => {
-  if (!user || !user.image) {
+  if (!user || !user.profile_picture) {
     return (
       <img src="/default-user.png" alt="Default" className="user-avatar" />
     );
   }
 
-  return <img src={user.image} alt={user.firstName} className="user-avatar" />;
+  return (
+    <img
+      src={user.profile_picture}
+      alt={user.first_name}
+      className="user-avatar"
+    />
+  );
 };
 
 const Header = () => {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user"));
-
+  const userinfo = JSON.parse(localStorage.getItem("user"));
+  const user = userinfo.data;
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("theme") === "dark",
   );
 
   const [openDropdown, setOpenDropdown] = useState(false);
   const dropdownRef = useRef();
+
+  console.log("A", openDropdown);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -66,16 +74,20 @@ const Header = () => {
           {darkMode ? <Sun size={24} /> : <Moon size={24} />}
         </button>
 
-        {/* Avatar + Dropdown */}
         <div className="avatar-wrapper" ref={dropdownRef}>
-          <div onClick={() => setOpenDropdown(!openDropdown)}>
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+              setOpenDropdown((prev) => !prev);
+            }}
+          >
             <Avatar user={user} />
           </div>
 
           {openDropdown && (
-            <div className="dropdown-menu">
+            <div className="user-menu">
               <p className="dropdown-user">
-                <a href="">{user?.firstName ? user.firstName : "Guest"}</a>
+                <a href="#">{user?.username || "Guest"}</a>
               </p>
               <button onClick={handleLogout}>Logout</button>
             </div>

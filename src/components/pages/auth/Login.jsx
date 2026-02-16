@@ -6,6 +6,8 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
+  const [message, setMessage] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,10 +18,17 @@ function Login() {
         password: password,
       });
 
-      console.log("Login success:", data);
+      setErrors({});
+      setMessage("");
       navigate("/admin/dashboard"); // redirect to admin dashboard
     } catch (error) {
-      console.log("Login failed");
+      if (error.response?.data?.errors) {
+        setErrors(error.response.data.errors);
+      } else if (error.response?.data?.message) {
+        setMessage(error.response.data.message);
+      } else {
+        setMessage("Login failed. Please try again.");
+      }
     }
   };
 
@@ -36,6 +45,7 @@ function Login() {
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
+          {errors.email && <p className="error-text">{errors.email[0]}</p>}
         </div>
 
         <div className="input-group">
@@ -46,10 +56,15 @@ function Login() {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
+          {errors.password && (
+            <p className="error-text">{errors.password[0]}</p>
+          )}
         </div>
 
-        <button type="submit" className="login-btn">Login</button>
-
+        {message && <p className="error-text">{message}</p>}
+        <button type="submit" className="login-btn">
+          Login
+        </button>
       </form>
     </div>
   );
