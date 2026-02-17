@@ -120,16 +120,19 @@ body.dark {
 
 /* Sidebar */
 .sidebar {
-  width: 250px;
   background: var(--color-primary);
   color: white;
   border-right: 1px solid #334155;
+}
+
+.sidebar.open {
+  width: 250px;
   transition: all 0.3s ease;
 }
 
 .sidebar.closed {
-  width: 70px !important;
-  /* শুধু icon দেখাবে */
+  display: none;
+  transition: all 0.3s ease;
 }
 
 .sidebar-title {
