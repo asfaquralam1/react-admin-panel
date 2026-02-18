@@ -111,8 +111,6 @@ body.dark {
   background: var(--color-secondary);
 }
 
-
-/* Full Layout */
 .admin-wrapper {
   display: flex;
   height: 100vh;
@@ -134,8 +132,11 @@ body.dark {
 
 .sidebar-title {
   font-size: 1.5em;
-  padding: 12px;
+  height: 60px;
   margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-bottom: 1px solid #334155;
 }
 
@@ -197,9 +198,10 @@ body.dark {
 .header {
   background: white;
   display: flex;
+  height: 60px;
   justify-content: space-between;
   border-bottom: 1px solid #334155;
-  padding: 6px;
+  padding: 0 1rem;
 }
 
 body.dark .header {
@@ -242,10 +244,6 @@ body.dark .avatar-wrapper {
   border-left: 2px solid #212631;
   padding-left: 15px;
 }
-
-/* body.dark .avatar-wrapper {
-  border-left: 2px solid #e5e7eb;
-} */
 
 .user-menu {
   position: absolute;
