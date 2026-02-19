@@ -4,21 +4,23 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
 
-const MainLayout = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+const MainLayout = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(true);
 
   const toggleSidebar = () => {
-    setSidebarOpen((prev) => !prev);
+    setIsOpen(!isOpen);
   };
 
   return (
     <div>
       <div className="admin-wrapper">
-        <Sidebar sidebarOpen={sidebarOpen} />
-        <div className={`admin-body ${sidebarOpen ? "" : "full"}`}>
-          <Header toggleSidebar={toggleSidebar} />
+        <Sidebar isOpen={isOpen} />
+        <div className="admin-body">
+           <Header toggleSidebar={toggleSidebar} />
+           {/* <Sidebar isOpen={isOpen} /> */}
           <main className="admin-content">
             <Outlet />
+            {children}
           </main>
         </div>
       </div>

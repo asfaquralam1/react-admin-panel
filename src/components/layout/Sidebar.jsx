@@ -9,22 +9,24 @@ import {
 } from "lucide-react";
 import React, { useState } from "react";
 
-const Sidebar = ({ sidebarOpen }) => {
+const Sidebar = ({ isOpen }) => {
   const [productOpen, setProductOpen] = useState(false);
 
   return (
-    <div className={`sidebar ${sidebarOpen ? "open" : "closed"}`}>
+    <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
       {/* <aside className="sidebar"> */}
-      <h2 className="sidebar-title">Admin Panel</h2>
+      <h2 className="sidebar-title">
+        {isOpen ? "Admin Panel" : "AP"}
+      </h2>
 
       <NavLink className="sidenav" to="/admin/dashboard" end>
         <Diameter size={18} style={{ marginRight: "10px" }} />
-        Dashboard
+        <span>Dashboard</span>
       </NavLink>
 
       <NavLink className="sidenav" to="/admin/users">
         <User size={18} style={{ marginRight: "10px" }} />
-        Users
+        <span>Users</span>
       </NavLink>
 
       {/* Products Dropdown */}
@@ -47,7 +49,7 @@ const Sidebar = ({ sidebarOpen }) => {
         <div className="submenu">
           <NavLink to="/admin/courses" className="submenu-link">
             <Circle size={14} style={{ marginRight: "10px" }} />
-            Courses List
+            <span>Courses List</span>
           </NavLink>
           <NavLink to="/admin/courses/create" className="submenu-link">
             <Circle size={14} style={{ marginRight: "10px" }} />
@@ -58,7 +60,7 @@ const Sidebar = ({ sidebarOpen }) => {
 
       <NavLink className="sidenav" to="/admin/settings">
         <Settings size={18} style={{ marginRight: "10px" }} />
-        Settings
+        <span>Settings</span>
       </NavLink>
       {/* </aside> */}
     </div>
