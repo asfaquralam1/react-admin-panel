@@ -13,11 +13,10 @@ const MainLayout = ({ children }) => {
 
   return (
     <div>
-      <div className="admin-wrapper">
+      <div className={`admin-wrapper ${isOpen ? "sidebar-open" : "sidebar-closed"}`}>
         <Sidebar isOpen={isOpen} />
         <div className="admin-body">
            <Header toggleSidebar={toggleSidebar} />
-           {/* <Sidebar isOpen={isOpen} /> */}
           <main className="admin-content">
             <Outlet />
             {children}

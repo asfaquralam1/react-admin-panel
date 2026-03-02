@@ -18,7 +18,7 @@ const App = () => {
                 <Route path="/" element={<Login />} />
                 <Route path="/admin/login" element={<Login />} />
 
-                <Route element={<AdminAuthProtect />}>
+                {/* <Route element={<AdminAuthProtect />}> */}
                     <Route element={<MainLayout />}>
                         <Route path="/admin/users" element={<Users />} />
                         <Route
@@ -30,7 +30,8 @@ const App = () => {
                             element={<UserDatils />}
                         />
                         <Route path="/admin/dashboard" element={<Dashboard />} />
-                    </Route></Route>
+                    </Route>
+                {/* </Route> */}
 
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
